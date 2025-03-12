@@ -1,0 +1,71 @@
+/* General body styling */
+body {
+    background-color: #040000;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+#ad{
+    background-color: #170572;
+}
+/* Main container for posts */
+#inputContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 60%;
+    margin-top: 20px;
+}
+
+/* Styling for each post */
+.input-wrapper {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: calc(50% - 20px);  /* Each post takes half the width, minus spacing */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Paragraph (submitted text) styling */
+.input-wrapper p {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Buttons styling */
+.input-wrapper button {
+    margin: 5px;
+    font-size: 14px;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-wrapper button:nth-child(2) {
+    background-color: #28a745; /* Green for edit */
+    color: white;
+}
+
+.input-wrapper button:nth-child(2):hover {
+    background-color: #218838;
+}
+
+.input-wrapper button:nth-child(3) {
+    background-color: #dc3545; /* Red for delete */
+    color: white;
+}
+
+.input-wrapper button:nth-child(3):hover {
+    background-color: #c82333;
+}

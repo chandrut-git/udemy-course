@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>postjs</title>
+    <link rel="stylesheet" href="/main.css">
+
+
+</head>
+<body>
+    
+
+    <%- include("partials/header.ejs") %>
+
+     
+     <button onclick="adt()" id="ad" >ADD</button>
+     
+     <div id="inputContainer"></div>
+      <%- include("partials/footer.ejs") %>
+<script>
+      function adt() {
+    let container = document.getElementById("inputContainer");
+
+    // Create a wrapper div for each input and submit button
+    let inputWrapper = document.createElement("div");
+    inputWrapper.className = "input-wrapper"; // Class for styling if needed
+
+    // Create input element
+    let input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Enter text";
+    
+    // Create submit button
+    let submitBtn = document.createElement("button");
+    submitBtn.innerText = "Submit";
+    submitBtn.onclick = function() {
+        submitText(input, inputWrapper);
+    };
+
+    // Append input and button to wrapper
+    inputWrapper.appendChild(input);
+    inputWrapper.appendChild(submitBtn);
+    
+    // Append the wrapper to the container
+    container.appendChild(inputWrapper);
+}
+
+function submitText(input, wrapper) {
+    let text = input.value.trim();
+    if (text === "") return; // Prevent empty input submission
+
+    // Create paragraph with entered text
+    let paragraph = document.createElement("p");
+    paragraph.innerText = text;
+
+    // Create Edit button
+    let editBtn = document.createElement("button");
+    editBtn.innerText = "Edit";
+    editBtn.onclick = function() {
+        editText(paragraph, wrapper);
+    };
+
+    // Create Delete button
+    let deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Delete";
+    deleteBtn.onclick = function() {
+        wrapper.remove();
+    };
+
+    // Clear wrapper and append new elements
+    wrapper.innerHTML = "";
+    wrapper.appendChild(paragraph);
+    wrapper.appendChild(editBtn);
+    wrapper.appendChild(deleteBtn);
+}
+
+function editText(paragraph, wrapper) {
+    // Create a new input field with existing text
+    let input = document.createElement("input");
+    input.type = "text";
+    input.value = paragraph.innerText;
+
+    // Create a Save button
+    let saveBtn = document.createElement("button");
+    saveBtn.innerText = "Save";
+    saveBtn.onclick = function() {
+        submitText(input, wrapper);
+    };
+
+    // Clear wrapper and append new elements
+    wrapper.innerHTML = "";
+    wrapper.appendChild(input);
+    wrapper.appendChild(saveBtn);
+}
+
+</script>
+</body>
+</html>
